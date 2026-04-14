@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blog — PillRem | Medication management, adherence, and calm</title>
+<meta name="description" content="The PillRem blog — practical guides on medication adherence, caregiver tips, health tracking, and the craft of building calm software. Written for real people managing real lives." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="canonical" href="https://pillrem.com/blog.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pillrem.com/blog.html" />
+<meta property="og:title" content="PillRem Blog — Medication management and caregiving" />
+<meta property="og:description" content="Practical guides on medication adherence, caregiver tips, and calm health tracking." />
+<meta property="og:image" content="https://pillrem.com/assets/screenshots/01-never-miss.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=DM+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/pages.css" />
+
+<style>
+/* Blog-specific styles */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin: 56px 0 96px;
+}
+.blog-card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 24px;
+  padding: 40px;
+  transition: transform .4s var(--ease-out), box-shadow .3s ease, border-color .3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+.blog-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--accent-soft, var(--primary-soft)), transparent 70%);
+  transform: translate(50%, -50%);
+  opacity: 0.5;
+  transition: opacity .4s ease;
+}
+.blog-card > * { position: relative; z-index: 1; }
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-floating);
+  border-color: transparent;
+}
+.blog-card:hover::before { opacity: 0.9; }
+
+.blog-card .category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, var(--primary));
+  margin-bottom: 16px;
+}
+.blog-card h2 {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.blog-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 auto;
+}
+.blog-card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hairline);
+  font-size: 13px;
+  color: var(--text-tertiary);
+}
+.blog-card .read-more {
+  color: var(--accent, var(--primary));
+  font-weight: 600;
+  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.blog-card .read-more::after {
+  content: "→";
+  transition: transform .3s ease;
+}
+.blog-card:hover .read-more::after { transform: translateX(4px); }
+
+.blog-card.coming-soon { opacity: 0.85; }
+.blog-card.coming-soon h2 { color: var(--text-secondary); }
+
+/* colour variants */
+.blog-card.c1 { --accent: var(--primary); --accent-soft: var(--primary-soft); }
+.blog-card.c2 { --accent: var(--sage); --accent-soft: var(--sage-soft); }
+.blog-card.c3 { --accent: var(--peach); --accent-soft: var(--peach-soft); }
+.blog-card.c4 { --accent: var(--lavender); --accent-soft: var(--lavender-soft); }
+
+@media (max-width: 820px) {
+  .blog-grid { grid-template-columns: 1fr; }
+}
+
+.newsletter {
+  background: var(--surface-soft);
+  border-radius: 28px;
+  padding: 56px 48px;
+  margin-bottom: 96px;
+  text-align: center;
+}
+.newsletter h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  color: var(--text);
+  max-width: 520px;
+  margin: 0 auto 16px;
+  letter-spacing: -0.025em;
+}
+.newsletter h2 em { color: var(--primary); font-style: italic; }
+.newsletter p {
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto 32px;
+  font-size: 16px;
+}
+.newsletter form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.newsletter input[type="email"] {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--text);
+}
+.newsletter input[type="email"]:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+.newsletter button {
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform .2s var(--ease-out), background .2s ease;
+}
+.newsletter button:hover { transform: translateY(-1px); background: var(--primary-dark); }
+@media (max-width: 560px) {
+  .newsletter form { flex-direction: column; }
+  .newsletter { padding: 40px 28px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo" aria-label="PillRem home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
+      </span>
+      PillRem
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <a href="/#download" class="nav-cta">Get the app</a>
+  </div>
+</nav>
+
+<header class="page-hero">
+  <div class="container page-hero-inner">
+    <span class="page-label">Blog</span>
+    <h1 class="page-title">Practical notes on <em>medication, caregiving, and calm</em>.</h1>
+    <p class="page-lead">Written for real people managing real lives. Stories, research-backed guides, and tips we wish we'd known earlier.</p>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="blog-grid">
+
+    <article class="blog-card c1">
+      <div class="category">Medication adherence</div>
+      <h2>Why remembering your medication is harder than it looks — and what actually helps.</h2>
+      <p>Fifty percent of people with chronic conditions miss doses regularly. It's not a willpower problem. It's a design problem. Here's the science of forgetting and what you can do about it.</p>
+      <div class="meta">
+        <span>Coming soon</span>
+        <a href="#" class="read-more">Read more</a>
+      </div>
+    </article>
+
+    <article class="blog-card c2">
+      <div class="category">Caregiving</div>
+      <h2>The invisible second job of managing medications for a parent.</h2>
+      <p>One in three adult caregivers also manages medications for an elderly parent — often from a different household. A practical guide for keeping everything straight without burning out.</p>
+      <div class="meta">
+        <span>Coming soon</span>
+        <a href="#" class="read-more">Read more</a>
+      </div>
+    </article>
+
+    <article class="blog-card c3">
+      <div class="category">Appointment prep</div>
+      <h2>How to bring your doctor a medication report they'll actually thank you for.</h2>
+      <p>A one-page PDF beats a napkin list every time. What to include, what to leave out, and the template that makes cardiologists smile.</p>
+      <div class="meta">
+        <span>Coming soon</span>
+        <a href="#" class="read-more">Read more</a>
+      </div>
+    </article>
+
+    <article class="blog-card c4">
+      <div class="category">Health tracking</div>
+      <h2>Blood pressure, blood sugar, and why the best trackers are the ones you actually use.</h2>
+      <p>The most accurate medical device is the one on your wrist this morning. A gentle introduction to logging health metrics without turning your life into a spreadsheet.</p>
+      <div class="meta">
+        <span>Coming soon</span>
+        <a href="#" class="read-more">Read more</a>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="newsletter">
+    <h2>Get the next post in your inbox, <em>not in your feed</em>.</h2>
+    <p>One short email when we publish something new. No tracking pixels. Unsubscribe with one click, any time.</p>
+    <form onsubmit="event.preventDefault(); alert('Thanks — newsletter signup is not yet wired up. Check back soon.');">
+      <input type="email" placeholder="you@example.com" aria-label="Email address" required />
+      <button type="submit">Subscribe</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-about">
+        <a href="/" class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
+          </span>
+          PillRem
+        </a>
+        <p>The calm medication reminder app for iPhone. Built for real people managing real lives — and the people they care for.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#showcase">Screenshots</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="mailto:hello@pillrem.com">Contact</a></li>
+          <li><a href="/press.html">Press kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/security.html">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year">2026</span> PillRem. Medication reminder app for iPhone.</div>
+      <div>Made with care · Not a substitute for medical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const nav = document.getElementById("nav");
+const setNavState = () => nav.classList.toggle("scrolled", window.scrollY > 4);
+setNavState();
+window.addEventListener("scroll", setNavState, { passive: true });
+</script>
+
+</body>
+</html>
