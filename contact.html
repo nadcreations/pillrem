@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact — PillRem | Get in touch with the team</title>
+<meta name="description" content="Get in touch with the PillRem team. Email support@pillrem.com for help, feedback, bug reports, or questions about the calm medication reminder app for iPhone." />
+<meta name="keywords" content="PillRem support, medication reminder app support, contact PillRem, PillRem help, pill reminder app customer service" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#FAF7F2" />
+<link rel="canonical" href="https://pillrem.com/contact.html" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://pillrem.com/contact.html" />
+<meta property="og:title" content="Contact PillRem" />
+<meta property="og:description" content="Email support@pillrem.com — we'd love to hear from you." />
+<meta property="og:image" content="https://pillrem.com/assets/screenshots/01-never-miss.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contact PillRem" />
+<meta name="twitter:description" content="Email support@pillrem.com — we read every message." />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "url": "https://pillrem.com/contact.html",
+  "name": "Contact PillRem",
+  "description": "Contact the PillRem team at support@pillrem.com",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "PillRem",
+    "email": "support@pillrem.com",
+    "url": "https://pillrem.com",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "email": "support@pillrem.com",
+        "contactType": "customer support",
+        "availableLanguage": ["English"]
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "privacy@pillrem.com",
+        "contactType": "privacy inquiries"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "security@pillrem.com",
+        "contactType": "security"
+      },
+      {
+        "@type": "ContactPoint",
+        "email": "press@pillrem.com",
+        "contactType": "press inquiries"
+      }
+    ]
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=DM+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/pages.css" />
+
+<style>
+/* ============================================================
+   Contact-specific styles
+   ============================================================ */
+.contact-primary {
+  position: relative;
+  padding: 64px 48px;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  border-radius: 32px;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+  margin: 24px 0 64px;
+  box-shadow: var(--shadow-floating);
+}
+.contact-primary::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 60%);
+}
+.contact-primary::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 196, 160, 0.22), transparent 60%);
+}
+.contact-primary > * { position: relative; }
+
+.contact-primary .eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--peach);
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 999px;
+  margin-bottom: 24px;
+}
+.contact-primary h2 {
+  color: #fff;
+  font-size: clamp(30px, 3.6vw, 44px);
+  font-weight: 400;
+  margin: 0 0 12px;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+.contact-primary h2 em {
+  color: var(--peach);
+  font-style: italic;
+}
+.contact-primary .intro {
+  font-size: 16px;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.55;
+}
+
+.email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  color: var(--primary-dark);
+  padding: 18px 34px 18px 28px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-feature-settings: "ss01";
+  transition: transform .3s var(--ease-out), box-shadow .3s ease;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.4);
+}
+.email-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -8px rgba(0, 0, 0, 0.45);
+  color: var(--primary);
+}
+.email-link svg {
+  width: 26px;
+  height: 26px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.response-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+.response-note .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--peach);
+  box-shadow: 0 0 0 4px rgba(232, 196, 160, 0.25);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* ---- Routing cards ---- */
+.routes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 32px 0 56px;
+}
+.route-card {
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+  padding: 28px;
+  transition: transform .35s var(--ease-out), box-shadow .35s ease, border-color .35s ease;
+  display: flex;
+  flex-direction: column;
+}
+.route-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-raised);
+  border-color: transparent;
+}
+.route-card .icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft, var(--primary-soft));
+  color: var(--accent, var(--primary));
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+.route-card .icon svg { width: 20px; height: 20px; }
+.route-card h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+.route-card p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0 0 20px;
+  flex: 1;
+}
+.route-card .route-email {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent, var(--primary));
+  font-family: var(--font-body);
+  text-decoration: none;
+}
+.route-card .route-email::after {
+  content: "→";
+  transition: transform .3s ease;
+}
+.route-card:hover .route-email::after { transform: translateX(4px); }
+
+.route-card.r1 { --accent: var(--primary); --accent-soft: var(--primary-soft); }
+.route-card.r2 { --accent: var(--sage); --accent-soft: var(--sage-soft); }
+.route-card.r3 { --accent: var(--rose); --accent-soft: var(--rose-soft); }
+.route-card.r4 { --accent: var(--lavender); --accent-soft: var(--lavender-soft); }
+
+@media (max-width: 720px) {
+  .routes { grid-template-columns: 1fr; }
+  .contact-primary { padding: 48px 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="/" class="logo" aria-label="PillRem home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
+      </span>
+      PillRem
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#how">How it works</a>
+      <a href="/#faq">FAQ</a>
+    </div>
+    <a href="/#download" class="nav-cta">Get the app</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="page-hero">
+  <div class="container-narrow page-hero-inner">
+    <span class="page-label">Contact</span>
+    <h1 class="page-title">We'd love to <em>hear from you</em>.</h1>
+    <p class="page-lead">Questions, feedback, bug reports, or just saying hello — one real inbox, read by real humans. No tickets. No bots. No auto-responders.</p>
+  </div>
+</header>
+
+<!-- CONTENT -->
+<main class="container-narrow prose">
+
+  <!-- Primary contact card -->
+  <div class="contact-primary">
+    <span class="eyebrow">General enquiries</span>
+    <h2>Drop us a line, <em>anytime</em>.</h2>
+    <p class="intro">The fastest way to reach us is by email. We're a small team, so your message goes straight to a person who can actually help.</p>
+    <a href="mailto:support@pillrem.com" class="email-link" aria-label="Email support at pillrem dot com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      support@pillrem.com
+    </a>
+    <div class="response-note">
+      <span class="dot"></span>
+      <span>We aim to reply within 1 business day</span>
+    </div>
+  </div>
+
+  <h2>How can we help?</h2>
+  <p>Depending on what you need, here are the best routes to reach the right person on our team. Every address below goes to a real inbox — not a shared ticket queue.</p>
+
+  <div class="routes">
+    <article class="route-card r1">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </div>
+      <h3>Support &amp; feedback</h3>
+      <p>Bug reports, feature requests, "how do I…" questions, or just general feedback about the app.</p>
+      <a href="mailto:support@pillrem.com" class="route-email">support@pillrem.com</a>
+    </article>
+
+    <article class="route-card r2">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      </div>
+      <h3>Privacy &amp; data</h3>
+      <p>Data access requests, deletion requests, or any question about how we handle your health data.</p>
+      <a href="mailto:privacy@pillrem.com" class="route-email">privacy@pillrem.com</a>
+    </article>
+
+    <article class="route-card r3">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Security</h3>
+      <p>Responsible disclosure of vulnerabilities, or any security-related concern. We'll acknowledge within 48 hours.</p>
+      <a href="mailto:security@pillrem.com" class="route-email">security@pillrem.com</a>
+    </article>
+
+    <article class="route-card r4">
+      <div class="icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 13v-2z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+      </div>
+      <h3>Press &amp; media</h3>
+      <p>Journalist inquiries, review copies, interview requests, or anything related to the <a href="/press.html">press kit</a>.</p>
+      <a href="mailto:press@pillrem.com" class="route-email">press@pillrem.com</a>
+    </article>
+  </div>
+
+  <h2>Before you write</h2>
+  <p>If you're looking for the quickest possible answer, our <a href="/#faq">FAQ</a> on the home page covers the most common questions about PillRem — including setup, privacy, subscriptions, and the 3-day free trial on the Weekly plan. You'll often find what you need there in under a minute.</p>
+  <p>For everything else, we really are here. Email <a href="mailto:support@pillrem.com">support@pillrem.com</a> and we'll get back to you.</p>
+
+  <div class="callout">
+    <strong>Not a medical service:</strong> PillRem is a reminder and tracking tool, not a medical device. If you have a medical emergency, call your local emergency number immediately. For questions about your medications, please consult your doctor or pharmacist.
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-about">
+        <a href="/" class="logo">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
+          </span>
+          PillRem
+        </a>
+        <p>The calm medication reminder app for iPhone. Built for real people managing real lives — and the people they care for.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#features">Features</a></li>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#showcase">Screenshots</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/blog.html">Blog</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="/press.html">Press kit</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/security.html">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span id="year">2026</span> PillRem. Medication reminder app for iPhone.</div>
+      <div>Made with care · Not a substitute for medical advice.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+const nav = document.getElementById("nav");
+const setNavState = () => nav.classList.toggle("scrolled", window.scrollY > 4);
+setNavState();
+window.addEventListener("scroll", setNavState, { passive: true });
+</script>
+
+</body>
+</html>
