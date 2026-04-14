@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <url>
+    <loc>https://pillrem.com/</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/01-never-miss.png</image:loc>
+      <image:title>PillRem medication reminder app home screen</image:title>
+      <image:caption>PillRem home screen with daily medication reminders</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/02-track-adherence.png</image:loc>
+      <image:title>PillRem adherence tracking</image:title>
+      <image:caption>Track medication adherence and streaks in PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/03-monitor-metrics.png</image:loc>
+      <image:title>PillRem health metrics dashboard</image:title>
+      <image:caption>Log blood pressure, blood sugar and more in PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/04-manage-family.png</image:loc>
+      <image:title>PillRem family medication management</image:title>
+      <image:caption>Manage medications for multiple family members with PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/05-share-reports.png</image:loc>
+      <image:title>PillRem doctor-ready PDF reports</image:title>
+      <image:caption>Share doctor-ready PDF reports from PillRem</image:caption>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/privacy.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/terms.html</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
