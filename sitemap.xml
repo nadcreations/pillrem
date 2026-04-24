@@ -45,6 +45,47 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog.html"/>
   </url>
 
+  <!-- Blog posts -->
+  <url>
+    <loc>https://pillrem.com/blog/how-to-remember-medication.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog/how-to-remember-medication.html"/>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/blog/managing-elderly-parent-medications.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog/managing-elderly-parent-medications.html"/>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/blog/pill-reminder-app-vs-pill-organizer.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog/pill-reminder-app-vs-pill-organizer.html"/>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/blog/medication-list-for-doctor.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog/medication-list-for-doctor.html"/>
+  </url>
+
+  <url>
+    <loc>https://pillrem.com/blog/forgetting-evening-medication.html</loc>
+    <lastmod>2026-04-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/blog/forgetting-evening-medication.html"/>
+  </url>
+
   <url>
     <loc>https://pillrem.com/about.html</loc>
     <lastmod>2026-04-24</lastmod>
