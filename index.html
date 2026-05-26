@@ -25,7 +25,7 @@
 <meta property="og:url" content="https://pillrem.com/" />
 <meta property="og:title" content="PillRem — Medication Reminder App for iPhone" />
 <meta property="og:description" content="Never wonder 'did I take my pill today?' again. PillRem is the calm medication reminder app for iPhone — smart pill reminders, adherence tracking, family profiles and doctor-ready reports." />
-<meta property="og:image" content="https://pillrem.com/assets/screenshots/01-never-miss.png" />
+<meta property="og:image" content="https://pillrem.com/assets/screenshots/01-care-that-remembers.jpg" />
 <meta property="og:site_name" content="PillRem" />
 <meta property="og:locale" content="en_US" />
 
@@ -33,7 +33,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="PillRem — Medication Reminder App for iPhone" />
 <meta name="twitter:description" content="The calm medication reminder app that helps you and your family never miss a dose. Free on iPhone." />
-<meta name="twitter:image" content="https://pillrem.com/assets/screenshots/01-never-miss.png" />
+<meta name="twitter:image" content="https://pillrem.com/assets/screenshots/01-care-that-remembers.jpg" />
 
 <!-- Bing / MSN Webmaster verification placeholder — replace content="" with your Bing code once verified -->
 <meta name="msvalidate.01" content="" />
@@ -239,6 +239,17 @@
   --rose-soft:        #F7E8E8;
   --lavender:         #9B8FB5;
   --lavender-soft:    #EFEBF5;
+
+  /* Editorial spread swatches — sampled from the ASO screen tiles.
+     Each homepage section adopts the swatch of the screen it shows. */
+  --c-sand:           #EFE7D7;
+  --c-sky:            #D8DCE7;
+  --c-sage-block:     #C8D5C5;
+  --c-tan:            #E5D2B9;
+  --c-blush:          #E5C5C5;
+  --c-cream:          #EBE4D2;
+  --ink-navy:         #1F3A5C;
+  --ink-brown:        #3A2A22;
 
   /* Text */
   --text:             #2A3142;
@@ -535,41 +546,33 @@ body::before {
   animation: fadeUp 1.2s var(--ease-out) both;
   animation-delay: .3s;
 }
+/* The hero "phone" is now the full ASO marketing tile — its
+   background, headline, and device frame are already part of the
+   image. We tilt it slightly and add a soft drop-shadow so it
+   feels like a magazine cutout pinned to the page, then lift it
+   on hover. No outer dark frame: the image IS the frame. */
 .phone-wrap {
   position: relative;
-  width: min(360px, 100%);
-  aspect-ratio: 360/780;
-  border-radius: 54px;
-  padding: 12px;
-  background: linear-gradient(145deg, #1a1d29, #2a3142);
-  box-shadow: var(--shadow-lifted), 0 0 0 1px rgba(255,255,255,0.08) inset;
-  transform: rotate(-3deg);
+  width: min(420px, 100%);
+  transform: rotate(-2.5deg);
   transition: transform .8s var(--ease-out);
 }
-.phone-wrap:hover { transform: rotate(-1deg) translateY(-6px); }
-.phone-wrap::before {
-  /* Dynamic island */
-  content: "";
-  position: absolute;
-  top: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px; height: 28px;
-  background: #000;
-  border-radius: 999px;
-  z-index: 2;
-}
+.phone-wrap:hover { transform: rotate(-0.5deg) translateY(-6px); }
 .phone-screen {
   width: 100%;
-  height: 100%;
-  border-radius: 42px;
-  overflow: hidden;
-  background: var(--bg);
+  height: auto;
+  overflow: visible;
+  background: transparent;
+  border-radius: 32px;
 }
 .phone-screen img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: top;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 32px;
+  filter:
+    drop-shadow(0 2px 8px rgba(0,0,0,0.08))
+    drop-shadow(0 28px 50px rgba(0,0,0,0.14));
 }
 
 /* Floating decorative pills around hero phone */
@@ -959,58 +962,232 @@ body::before {
 }
 
 /* ============================================================
-   SCREENSHOTS SHOWCASE
+   SCREENSHOTS SHOWCASE — editorial spread
+   Ten full-bleed color blocks, each adopting the swatch of the
+   screen it presents. The device is the ASO marketing tile itself,
+   already framed and headlined — the page is its passe-partout.
    ============================================================ */
-.showcase {
-  padding: 140px 0;
+.spread {
+  position: relative;
+  padding: 110px 0 120px;
   overflow: hidden;
 }
-.showcase-track {
-  display: flex;
-  gap: 32px;
-  margin-top: 72px;
-  padding: 40px 0;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-}
-.showcase-track::-webkit-scrollbar { display: none; }
-.showcase-card {
-  flex: 0 0 auto;
-  width: 280px;
-  aspect-ratio: 280/600;
-  border-radius: 38px;
-  padding: 10px;
-  background: linear-gradient(145deg, #1a1d29, #2a3142);
-  box-shadow: var(--shadow-lifted);
-  scroll-snap-align: center;
+.spread-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 64px;
+  align-items: center;
   position: relative;
-}
-.showcase-card::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 86px; height: 24px;
-  background: #000;
-  border-radius: 999px;
   z-index: 2;
 }
-.showcase-card .inner {
-  width: 100%; height: 100%;
-  border-radius: 30px;
-  overflow: hidden;
-}
-.showcase-card img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.spread--reverse .spread-text   { order: 2; }
+.spread--reverse .spread-figure { order: 1; }
 
-.showcase-caption {
-  text-align: center;
-  margin-top: 16px;
+.spread--sand   { background: var(--c-sand); }
+.spread--sky    { background: var(--c-sky); }
+.spread--sage   { background: var(--c-sage-block); }
+.spread--tan    { background: var(--c-tan); }
+.spread--blush  { background: var(--c-blush); }
+.spread--cream  { background: var(--c-cream); }
+
+.spread--blush .spread-text,
+.spread--tan   .spread-text { color: var(--ink-brown); }
+.spread--sand  .spread-text,
+.spread--sky   .spread-text,
+.spread--sage  .spread-text,
+.spread--cream .spread-text { color: var(--ink-navy); }
+
+.spread-chapter {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 28px;
+  opacity: 0.6;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.spread-chapter::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+}
+.spread-chapter em {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.spread-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 4.6vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  margin: 0 0 28px;
+  color: inherit;
+}
+.spread-title em {
+  font-style: italic;
+  font-feature-settings: "ss01";
+}
+.spread-lead {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.15vw, 18px);
+  line-height: 1.65;
+  max-width: 460px;
+  margin: 0 0 28px;
+  opacity: 0.82;
+}
+
+/* In-section micro-detail list — three small lines, each prefixed
+   by a hand-drawn dash, beneath the lead copy. */
+.spread-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  opacity: 0.82;
+}
+.spread-bullets li { padding-left: 22px; position: relative; }
+.spread-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0.65em;
+  width: 12px; height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.spread-figure {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.spread-figure img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+  filter:
+    drop-shadow(0 2px 6px rgba(0,0,0,0.06))
+    drop-shadow(0 24px 44px rgba(0,0,0,0.12));
+}
+
+/* Decorative roman numeral overlay — sits behind the device,
+   massive, bleached, like a chapter marker in a magazine. */
+.spread-figure::before {
+  content: attr(data-numeral);
+  position: absolute;
   font-family: var(--font-display);
   font-style: italic;
+  font-weight: 400;
+  font-size: clamp(160px, 22vw, 320px);
+  line-height: 0.9;
+  color: currentColor;
+  opacity: 0.08;
+  top: 50%;
+  left: -8%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.04em;
+}
+.spread--reverse .spread-figure::before {
+  left: auto;
+  right: -8%;
+}
+
+/* Pull-quote interlude between sections */
+.spread-quote {
+  padding: 96px 0;
+  text-align: center;
+  background: var(--bg);
+  position: relative;
+}
+.spread-quote::before,
+.spread-quote::after {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--hairline-strong);
+  margin: 0 auto 28px;
+}
+.spread-quote::after { margin: 28px auto 0; }
+.spread-quote-body {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.28;
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--text);
+  letter-spacing: -0.012em;
+}
+.spread-quote-attr {
+  margin-top: 22px;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  font-family: var(--font-body);
+}
+
+/* Editorial intro card — sits ABOVE the 10 spreads, replaces the
+   old "section-label / section-title" lead block with magazine-y
+   framing copy. */
+.showcase-intro {
+  padding: 140px 0 32px;
+  text-align: center;
+  background: var(--bg);
+}
+.showcase-intro .eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  margin-bottom: 18px;
+}
+.showcase-intro h2 {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 400;
+  letter-spacing: -0.028em;
+  line-height: 1.04;
+  max-width: 860px;
+  margin: 0 auto 22px;
+  color: var(--text);
+}
+.showcase-intro h2 em { font-style: italic; color: var(--primary); }
+.showcase-intro p {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 1.1vw, 18px);
   color: var(--text-secondary);
-  font-size: 15px;
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .spread { padding: 72px 0 80px; }
+  .spread-inner { grid-template-columns: 1fr; gap: 36px; }
+  .spread--reverse .spread-text   { order: 1; }
+  .spread--reverse .spread-figure { order: 2; }
+  .spread-figure::before { font-size: 180px; opacity: 0.05; }
+  .showcase-intro { padding: 88px 0 16px; }
 }
 
 /* ============================================================
@@ -1305,7 +1482,7 @@ body::before {
       <a href="#showcase">Screenshots</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="#download" class="nav-cta">Get the app</a>
+    <a href="https://apps.apple.com/us/app/pill-reminder-pillrem/id6761991055" target="_blank" rel="noopener" class="nav-cta">Get the app</a>
   </div>
 </nav>
 
@@ -1328,7 +1505,7 @@ body::before {
         PillRem is the calm <strong>medication reminder app</strong> that helps you and your family stay on top of every dose. Smart pill reminders, adherence tracking, health metrics and doctor-ready reports — all in one private iPhone app.
       </p>
       <div class="hero-actions">
-        <a href="#download" class="app-store-btn" aria-label="Download PillRem on the App Store">
+        <a href="https://apps.apple.com/us/app/pill-reminder-pillrem/id6761991055" target="_blank" rel="noopener" class="app-store-btn" aria-label="Download PillRem on the App Store">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
           <span class="labels">
             <span class="tiny">Download on the</span>
@@ -1345,7 +1522,7 @@ body::before {
     <div class="hero-visual">
       <div class="phone-wrap">
         <div class="phone-screen">
-          <img src="assets/screenshots/01-never-miss.png" alt="PillRem medication reminder app home screen showing today's doses" width="360" height="780" loading="eager" fetchpriority="high" />
+          <img src="assets/screenshots/01-care-that-remembers.jpg" alt="PillRem medication reminder app home screen showing today's doses, adherence ring and time-of-day reminders" width="660" height="1434" loading="eager" fetchpriority="high" />
         </div>
       </div>
       <div class="pill-deco pill-1" aria-hidden="true"></div>
@@ -1522,35 +1699,233 @@ body::before {
 <!-- ============================================================
      SCREENSHOTS SHOWCASE
      ============================================================ -->
-<section class="showcase section" id="showcase">
+<!-- Editorial intro card -->
+<section id="showcase" class="showcase-intro">
   <div class="container">
-    <span class="section-label">See it in action</span>
-    <h2 class="section-title">A medication tracker that feels <em>like a deep breath</em>.</h2>
-    <p class="section-lead">
-      Clean, calm, designed for every age. Every screen in PillRem is built to reduce cognitive load — not add to it.
-    </p>
+    <div class="eyebrow">An Editorial in Ten Screens</div>
+    <h2>Every screen in PillRem is built to <em>reduce</em> cognitive load — not add to it.</h2>
+    <p>Scroll the tour. Ten chapters, ten swatches, one quiet daily ritual.</p>
   </div>
+</section>
 
-  <div class="showcase-track" id="showcaseTrack">
-    <div>
-      <div class="showcase-card"><div class="inner"><img src="assets/screenshots/01-never-miss.png" alt="PillRem home screen showing daily medications and smart reminders" loading="lazy" /></div></div>
-      <div class="showcase-caption">Never miss a dose</div>
+<!-- Spread 01 — Home / care that remembers -->
+<section class="spread spread--sand">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>One</em> · The Daily Ritual</div>
+      <h2 class="spread-title">Care that <em>remembers</em> for you.</h2>
+      <p class="spread-lead">
+        A calm dashboard that holds the day. Adherence at a glance, morning to night, with reminders that feel like a friend tapping your shoulder — not a buzzer.
+      </p>
+      <ul class="spread-bullets">
+        <li>Today's progress ring and time-of-day cards</li>
+        <li>Gentle haptics and a tone you actually like</li>
+        <li>One screen tells you everything important</li>
+      </ul>
     </div>
-    <div>
-      <div class="showcase-card"><div class="inner"><img src="assets/screenshots/02-track-adherence.png" alt="PillRem adherence tracking showing streak and weekly consistency" loading="lazy" /></div></div>
-      <div class="showcase-caption">Track your adherence</div>
+    <div class="spread-figure" data-numeral="I">
+      <img src="assets/screenshots/01-care-that-remembers.jpg" alt="PillRem home screen with daily medication progress and morning, afternoon, evening, night reminders" loading="lazy" width="660" height="1434" />
     </div>
-    <div>
-      <div class="showcase-card"><div class="inner"><img src="assets/screenshots/03-monitor-metrics.png" alt="PillRem health metrics dashboard showing blood pressure and weight" loading="lazy" /></div></div>
-      <div class="showcase-caption">Monitor health metrics</div>
+  </div>
+</section>
+
+<!-- Spread 02 — Medications list -->
+<section class="spread spread--sky spread--reverse">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Two</em> · The Apothecary Shelf</div>
+      <h2 class="spread-title">All your medications, <em>one</em> place.</h2>
+      <p class="spread-lead">
+        A clean ledger of every prescription, supplement, and as-needed pill — colored by form, searchable, easy to scan when the doctor asks "what are you on?"
+      </p>
+      <ul class="spread-bullets">
+        <li>Visual pill cues — shape, color, dosage</li>
+        <li>Condition tags for quick context</li>
+        <li>Active, paused, archived — never lost</li>
+      </ul>
     </div>
-    <div>
-      <div class="showcase-card"><div class="inner"><img src="assets/screenshots/04-manage-family.png" alt="PillRem family profiles showing medications for multiple family members" loading="lazy" /></div></div>
-      <div class="showcase-caption">Manage the whole family</div>
+    <div class="spread-figure" data-numeral="II">
+      <img src="assets/screenshots/02-all-medications-one-place.jpg" alt="PillRem medications list with five active medications and search" loading="lazy" width="660" height="1434" />
     </div>
-    <div>
-      <div class="showcase-card"><div class="inner"><img src="assets/screenshots/05-share-reports.png" alt="PillRem doctor-ready PDF report with medication history and adherence" loading="lazy" /></div></div>
-      <div class="showcase-caption">Share doctor-ready reports</div>
+  </div>
+</section>
+
+<!-- Spread 03 — Add medication / form selection -->
+<section class="spread spread--sage">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Three</em> · From Prescription to Reminder</div>
+      <h2 class="spread-title">Add a new med in <em>seconds</em>.</h2>
+      <p class="spread-lead">
+        Eight short, friendly steps. Pick a form, name it, set the rhythm. From a fresh prescription to a working reminder — usually under a minute.
+      </p>
+      <ul class="spread-bullets">
+        <li>Pill, capsule, tablet, liquid, injection, patch — all here</li>
+        <li>Plain language, no medical jargon</li>
+        <li>Saved instantly to every active profile</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="III">
+      <img src="assets/screenshots/03-add-meds-in-seconds.jpg" alt="PillRem add medication flow choosing a form — pill, capsule, tablet, liquid, injection, patch, cream, suppository" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Pull quote 1 -->
+<section class="spread-quote">
+  <p class="spread-quote-body">"A medication tracker that actually feels like a deep breath. I notice the difference on day three."</p>
+  <div class="spread-quote-attr">— Josephine R., Verified Reviewer</div>
+</section>
+
+<!-- Spread 04 — Reminder frequency -->
+<section class="spread spread--cream spread--reverse">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Four</em> · A Rhythm of Your Own</div>
+      <h2 class="spread-title">Reminders that fit your <em>routine</em>.</h2>
+      <p class="spread-lead">
+        Daily, certain weekdays, every few days, or only when you actually need it. Your schedule isn't a default — it's whatever you live.
+      </p>
+      <ul class="spread-bullets">
+        <li>Specific-day picker for weekday-only meds</li>
+        <li>"Every X days" for biologicals and injections</li>
+        <li>As-needed mode for PRN scripts</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="IV">
+      <img src="assets/screenshots/04-reminders-fit-routine.jpg" alt="PillRem reminder frequency picker with daily, specific days, every X days, as needed options" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Spread 05 — Set times -->
+<section class="spread spread--sage">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Five</em> · The Right Hour</div>
+      <h2 class="spread-title">Know exactly <em>when</em> to take it.</h2>
+      <p class="spread-lead">
+        Set one time or many. Morning, mid-day, late afternoon — each with its own dosage. Iconography speaks at a glance, so even a tired evening makes sense.
+      </p>
+      <ul class="spread-bullets">
+        <li>Multiple times per day, per medication</li>
+        <li>Per-time dose amount (½, 1, 1½, 2…)</li>
+        <li>Soft visual indicators for each time-of-day window</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="V">
+      <img src="assets/screenshots/05-know-when-to-take.jpg" alt="PillRem schedule editor with 8AM, 12PM and 4PM reminder times" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Spread 06 — Health metrics -->
+<section class="spread spread--tan spread--reverse">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Six</em> · Beyond the Pillbox</div>
+      <h2 class="spread-title">Track <em>more</em> than medication.</h2>
+      <p class="spread-lead">
+        Blood pressure. Glucose. Weight. Temperature. Oxygen. Cholesterol. Twenty-five vitals you can log when it matters and forget about when it doesn't.
+      </p>
+      <ul class="spread-bullets">
+        <li>One-tap entry — no nested menus</li>
+        <li>Trends across week, month, year</li>
+        <li>All readings included in your doctor PDF</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="VI">
+      <img src="assets/screenshots/06-track-more-than-medication.jpg" alt="PillRem measurements screen showing blood pressure, blood glucose, weight and temperature readings" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Spread 07 — Reports -->
+<section class="spread spread--cream">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Seven</em> · Quiet Proof</div>
+      <h2 class="spread-title">See your progress <em>grow</em>.</h2>
+      <p class="spread-lead">
+        A weekly, monthly, yearly view of how you've been doing. A circle that fills as you stay in rhythm — and a doctor-ready PDF in one tap, when you need it.
+      </p>
+      <ul class="spread-bullets">
+        <li>Adherence ring with taken / skipped / missed</li>
+        <li>Tap to generate a PDF for your appointment</li>
+        <li>Privacy-first — never leaves your device unsent</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="VII">
+      <img src="assets/screenshots/07-see-progress-grow.jpg" alt="PillRem Reports screen with 100% weekly adherence ring and Generate PDF report option" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Pull quote 2 -->
+<section class="spread-quote">
+  <p class="spread-quote-body">"For the first time, my mom and I are on the same page about her medications. The doctor PDF saved us a forty-minute appointment."</p>
+  <div class="spread-quote-attr">— Marta L., Verified Reviewer</div>
+</section>
+
+<!-- Spread 08 — Family profiles -->
+<section class="spread spread--blush spread--reverse">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Eight</em> · For Those You Love</div>
+      <h2 class="spread-title">Care for <em>loved ones</em> too.</h2>
+      <p class="spread-lead">
+        Manage medications for the whole household — yourself, your parents, your kids, even the dog. Each profile is its own private space inside one calm app.
+      </p>
+      <ul class="spread-bullets">
+        <li>Unlimited profiles — Self, Dependent, Pet</li>
+        <li>Switch with one tap from the home screen</li>
+        <li>A separate reminder rhythm for each person</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="VIII">
+      <img src="assets/screenshots/08-care-for-loved-ones.jpg" alt="PillRem profile setup screen for adding a Mom profile as a Dependent with avatar selection" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Spread 09 — Refill tracking -->
+<section class="spread spread--blush">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Nine</em> · Never the Empty Bottle</div>
+      <h2 class="spread-title">Never run out of <em>medication</em>.</h2>
+      <p class="spread-lead">
+        Track what you have on hand and we'll nudge you before it gets close. No more 11pm pharmacy panics. No more skipped doses because a refill slipped your mind.
+      </p>
+      <ul class="spread-bullets">
+        <li>Set current stock and a refill threshold</li>
+        <li>Auto-decrement as you mark doses taken</li>
+        <li>A soft notification at exactly the right moment</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="IX">
+      <img src="assets/screenshots/09-never-run-out.jpg" alt="PillRem refill tracking step with current stock 30 and refill threshold 7" loading="lazy" width="660" height="1434" />
+    </div>
+  </div>
+</section>
+
+<!-- Spread 10 — Appointments -->
+<section class="spread spread--tan spread--reverse">
+  <div class="spread-inner">
+    <div class="spread-text">
+      <div class="spread-chapter">Chapter <em>Ten</em> · The Last Word</div>
+      <h2 class="spread-title">Never miss a doctor's <em>visit</em>.</h2>
+      <p class="spread-lead">
+        Annual checkups, follow-ups, specialist visits. Each appointment lives beside the meds and metrics it's about — so you walk in prepared and walk out unhurried.
+      </p>
+      <ul class="spread-bullets">
+        <li>Calendar reminders 24 hours and 1 hour ahead</li>
+        <li>Notes, location, provider — all in one card</li>
+        <li>Past visits archived, ready to reference</li>
+      </ul>
+    </div>
+    <div class="spread-figure" data-numeral="X">
+      <img src="assets/screenshots/10-never-miss-doctor-visit.jpg" alt="PillRem Appointments screen showing an upcoming Annual Checkup and Followup for Peter" loading="lazy" width="660" height="1434" />
     </div>
   </div>
 </section>
@@ -1683,7 +2058,7 @@ body::before {
     <div class="cta-box">
       <h2>Start taking care of your health <em>today</em>.</h2>
       <p>Download PillRem free on the App Store. Set up in a minute. Feel in control for good.</p>
-      <a href="#" class="app-store-btn" aria-label="Download PillRem on the App Store">
+      <a href="https://apps.apple.com/us/app/pill-reminder-pillrem/id6761991055" target="_blank" rel="noopener" class="app-store-btn" aria-label="Download PillRem on the App Store">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
         <span class="labels">
           <span class="tiny">Download on the</span>

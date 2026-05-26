@@ -11,29 +11,54 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://pillrem.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pillrem.com/"/>
     <image:image>
-      <image:loc>https://pillrem.com/assets/screenshots/01-never-miss.png</image:loc>
-      <image:title>PillRem medication reminder app home screen</image:title>
-      <image:caption>PillRem home screen with daily medication reminders for iPhone</image:caption>
+      <image:loc>https://pillrem.com/assets/screenshots/01-care-that-remembers.jpg</image:loc>
+      <image:title>PillRem — Care that remembers for you</image:title>
+      <image:caption>PillRem home screen with daily medication progress and time-of-day reminders</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://pillrem.com/assets/screenshots/02-track-adherence.png</image:loc>
-      <image:title>PillRem medication adherence tracking</image:title>
-      <image:caption>Track medication adherence, streaks, and daily consistency in PillRem</image:caption>
+      <image:loc>https://pillrem.com/assets/screenshots/02-all-medications-one-place.jpg</image:loc>
+      <image:title>PillRem — All your medications, one place</image:title>
+      <image:caption>Searchable medications list in PillRem — pills, capsules, tablets, liquids and more</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://pillrem.com/assets/screenshots/03-monitor-metrics.png</image:loc>
-      <image:title>PillRem health metrics dashboard</image:title>
-      <image:caption>Log blood pressure, blood sugar, cholesterol and 25 health metrics in PillRem</image:caption>
+      <image:loc>https://pillrem.com/assets/screenshots/03-add-meds-in-seconds.jpg</image:loc>
+      <image:title>PillRem — Add new medications in seconds</image:title>
+      <image:caption>Eight-step add-medication flow in PillRem — pick a form, name it, schedule it</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://pillrem.com/assets/screenshots/04-manage-family.png</image:loc>
-      <image:title>PillRem family medication management</image:title>
-      <image:caption>Manage medications for elderly parents, children and pets with unlimited family profiles</image:caption>
+      <image:loc>https://pillrem.com/assets/screenshots/04-reminders-fit-routine.jpg</image:loc>
+      <image:title>PillRem — Reminders that fit your routine</image:title>
+      <image:caption>Pick daily, specific weekdays, every-X-days, or as-needed reminder frequency</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://pillrem.com/assets/screenshots/05-share-reports.png</image:loc>
-      <image:title>PillRem doctor-ready PDF medication reports</image:title>
-      <image:caption>Share doctor-ready medication adherence PDF reports from PillRem</image:caption>
+      <image:loc>https://pillrem.com/assets/screenshots/05-know-when-to-take.jpg</image:loc>
+      <image:title>PillRem — Know exactly when to take it</image:title>
+      <image:caption>Set multiple reminder times per medication with per-time dosage in PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/06-track-more-than-medication.jpg</image:loc>
+      <image:title>PillRem — Track more than medication</image:title>
+      <image:caption>Log blood pressure, glucose, weight, temperature and 25 health metrics in PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/07-see-progress-grow.jpg</image:loc>
+      <image:title>PillRem — See your progress grow</image:title>
+      <image:caption>Weekly, monthly, yearly adherence reports and one-tap doctor-ready PDFs in PillRem</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/08-care-for-loved-ones.jpg</image:loc>
+      <image:title>PillRem — Care for loved ones too</image:title>
+      <image:caption>Unlimited family profiles in PillRem — manage medications for parents, children, pets</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/09-never-run-out.jpg</image:loc>
+      <image:title>PillRem — Never run out of medication</image:title>
+      <image:caption>Track current stock and refill thresholds — PillRem nudges you before you run low</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://pillrem.com/assets/screenshots/10-never-miss-doctor-visit.jpg</image:loc>
+      <image:title>PillRem — Never miss a doctor's visit</image:title>
+      <image:caption>Track appointments, checkups and follow-ups alongside medications in PillRem</image:caption>
     </image:image>
   </url>
 
