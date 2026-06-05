@@ -45,7 +45,7 @@
   "author": { "@type": "Organization", "name": "PillRem", "url": "https://pillrem.com" },
   "publisher": {
     "@type": "Organization", "name": "PillRem", "url": "https://pillrem.com",
-    "logo": { "@type": "ImageObject", "url": "https://pillrem.com/assets/logo.svg" }
+    "logo": { "@type": "ImageObject", "url": "https://pillrem.com/assets/app-icon.png" }
   },
   "mainEntityOfPage": { "@type": "WebPage", "@id": "https://pillrem.com/blog/medication-list-for-doctor.html" },
   "breadcrumb": {
@@ -62,6 +62,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=DM+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
 <link rel="stylesheet" href="../assets/css/pages.css" />
 
 <style>
@@ -93,13 +96,12 @@
 </style>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="/" class="logo" aria-label="PillRem home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
-      </span>
+      <img class="logo-mark" src="../assets/app-icon.png" alt="PillRem app icon" width="34" height="34" />
       PillRem
     </a>
     <div class="nav-links"><a href="/#features">Features</a><a href="/#how">How it works</a><a href="/blog.html">Blog</a><a href="/#faq">FAQ</a></div>
@@ -276,9 +278,7 @@ QUESTIONS FOR TODAY
     <div class="footer-top">
       <div class="footer-about">
         <a href="/" class="logo">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
-          </span>
+          <img class="logo-mark" src="../assets/app-icon.png" alt="PillRem app icon" width="34" height="34" />
           PillRem
         </a>
         <p>The calm medication reminder app for iPhone. Built for real people managing real lives — and the people they care for.</p>

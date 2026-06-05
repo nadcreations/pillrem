@@ -158,13 +158,12 @@ body::before {
 .logo-mark {
   width: 34px;
   height: 34px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  display: grid;
-  place-items: center;
-  box-shadow: var(--shadow-soft);
+  border-radius: 9px;
+  object-fit: cover;
+  box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(255,255,255,0.06);
+  transition: transform .35s var(--ease-out);
 }
-.logo-mark svg { width: 20px; height: 20px; color: #fff; }
+.logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
 
 .nav-links {
   display: flex;
@@ -796,7 +795,62 @@ body::before {
   .pk-gallery { grid-template-columns: 1fr; gap: 20px; }
 }
 
+/* ============================================================
+   PAGE-LOAD + SCROLL ANIMATION
+   ============================================================ */
+/* Gentle entrance so pages settle in rather than snapping on. */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+body {
+  animation: pageIn .6s var(--ease-out) both;
+}
+
+/* Reading-progress bar — CSS-only via a scroll-driven timeline.
+   Browsers without scroll-timeline simply leave it hidden. */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--primary), var(--sage) 70%, var(--peach));
+  z-index: 60;
+  pointer-events: none;
+}
+@supports (animation-timeline: scroll()) {
+  @keyframes growProgress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .scroll-progress {
+    animation: growProgress linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+/* Reveal content as it scrolls into view — CSS-only via view().
+   Falls back to fully visible where unsupported. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main > section,
+    main.prose > h2,
+    main.prose > h3,
+    .cards .card,
+    .faq-item {
+      animation: revealUp .8s var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
+    @keyframes revealUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+}
+
 /* ---------- reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+  body { opacity: 1 !important; transform: none !important; }
+  .scroll-progress { display: none !important; }
 }

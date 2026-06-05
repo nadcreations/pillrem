@@ -20,6 +20,13 @@
 <link rel="alternate" hreflang="en" href="https://pillrem.com/" />
 <link rel="alternate" hreflang="x-default" href="https://pillrem.com/" />
 
+<!-- Favicons / app icon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<!-- Failsafe: if JS is disabled, never trap the page behind the splash -->
+<noscript><style>.preloader{display:none!important}.scroll-progress{display:none!important}html.preload-lock{overflow:auto!important}.reveal,.reveal-left,.reveal-right,.reveal-scale,.spread-text,.spread-figure{opacity:1!important;transform:none!important}</style></noscript>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://pillrem.com/" />
@@ -142,7 +149,7 @@
   "@type": "Organization",
   "name": "PillRem",
   "url": "https://pillrem.com",
-  "logo": "https://pillrem.com/assets/logo.svg",
+  "logo": "https://pillrem.com/assets/app-icon.png",
   "sameAs": []
 }
 </script>
@@ -357,13 +364,12 @@ body::before {
 .logo-mark {
   width: 34px;
   height: 34px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  display: grid;
-  place-items: center;
-  box-shadow: var(--shadow-soft);
+  border-radius: 9px;
+  object-fit: cover;
+  box-shadow: var(--shadow-soft), inset 0 0 0 1px rgba(255,255,255,0.06);
+  transition: transform .35s var(--ease-out);
 }
-.logo-mark svg { width: 20px; height: 20px; color: #fff; }
+.logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
 
 .nav-links {
   display: flex;
@@ -1453,17 +1459,150 @@ body::before {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity .9s var(--ease-out), transform .9s var(--ease-out);
+  will-change: opacity, transform;
 }
-.reveal.in { opacity: 1; transform: translateY(0); }
+.reveal-left  { opacity: 0; transform: translateX(-44px); transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+.reveal-right { opacity: 0; transform: translateX(44px);  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+.reveal-scale { opacity: 0; transform: scale(.94);        transition: opacity 1s var(--ease-out), transform 1s var(--ease-out); }
+.reveal.in, .reveal-left.in, .reveal-right.in, .reveal-scale.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Editorial spreads — text and figure slide in from opposite sides
+   and settle. Direction flips on reversed spreads so each chapter
+   reveals "into" the centre fold. */
+.spread-text, .spread-figure {
+  opacity: 0;
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  will-change: opacity, transform;
+}
+.spread:not(.spread--reverse) .spread-text   { transform: translateX(-48px); }
+.spread:not(.spread--reverse) .spread-figure { transform: translateX(48px); }
+.spread--reverse .spread-text   { transform: translateX(48px); }
+.spread--reverse .spread-figure { transform: translateX(-48px); }
+.spread-figure { transition-delay: .1s; }
+.spread-text.in, .spread-figure.in { opacity: 1; transform: none; }
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--primary), var(--sage) 70%, var(--peach));
+  z-index: 60;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ============================================================
+   BRANDED PRELOADER — navy splash that rings the app icon,
+   then curtains away to reveal the page.
+   ============================================================ */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 50% 38%, #41608a 0%, #2a4b70 45%, #1f3a5c 100%);
+  transition: opacity .7s var(--ease-out), visibility .7s var(--ease-out);
+}
+.preloader.done { opacity: 0; visibility: hidden; }
+html.preload-lock { overflow: hidden; }
+.preloader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+}
+.preloader-badge {
+  animation: loaderPop .85s var(--ease-out) both;
+  transform-origin: 50% 14%;
+}
+.preloader-icon {
+  width: 92px; height: 92px;
+  border-radius: 22px;
+  box-shadow: 0 30px 60px -16px rgba(0,0,0,0.55);
+  transform-origin: 50% 12%;
+  animation: loaderRing 1.5s ease-in-out .55s both;
+}
+.preloader-word {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #fff;
+  opacity: 0;
+  animation: fadeUp .7s var(--ease-out) .4s both;
+}
+.preloader-bar {
+  width: 116px; height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  overflow: hidden;
+}
+.preloader-bar::after {
+  content: "";
+  display: block;
+  height: 100%; width: 45%;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  animation: loaderSlide 1.05s ease-in-out infinite;
+}
+@keyframes loaderPop {
+  0%   { opacity: 0; transform: scale(.55) translateY(12px); }
+  60%  { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes loaderRing {
+  0%, 8% { transform: rotate(0); }
+  20% { transform: rotate(12deg); }
+  34% { transform: rotate(-9deg); }
+  48% { transform: rotate(6deg); }
+  62% { transform: rotate(-4deg); }
+  76% { transform: rotate(2deg); }
+  100% { transform: rotate(0); }
+}
+@keyframes loaderSlide {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(360%); }
+}
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale,
+  .spread-text, .spread-figure { opacity: 1 !important; transform: none !important; }
+  .preloader { display: none !important; }
+  html.preload-lock { overflow: auto !important; }
 }
 </style>
 </head>
 
 <body>
+
+<!-- Lock scroll behind the splash as early as possible (JS-only). -->
+<script>document.documentElement.classList.add("preload-lock");</script>
+
+<!-- ============================================================
+     BRANDED PRELOADER + SCROLL PROGRESS
+     ============================================================ -->
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="preloader" id="preloader" role="presentation" aria-hidden="true">
+  <div class="preloader-inner">
+    <div class="preloader-badge">
+      <img class="preloader-icon" src="assets/app-icon.png" alt="" width="92" height="92" />
+    </div>
+    <div class="preloader-word">PillRem</div>
+    <div class="preloader-bar"></div>
+  </div>
+</div>
 
 <!-- ============================================================
      NAV
@@ -1471,9 +1610,7 @@ body::before {
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="/" class="logo" aria-label="PillRem home">
-      <span class="logo-mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
-      </span>
+      <img class="logo-mark" src="assets/app-icon.png" alt="PillRem app icon" width="34" height="34" />
       PillRem
     </a>
     <div class="nav-links">
@@ -1701,7 +1838,7 @@ body::before {
      ============================================================ -->
 <!-- Editorial intro card -->
 <section id="showcase" class="showcase-intro">
-  <div class="container">
+  <div class="container reveal-scale">
     <div class="eyebrow">An Editorial in Ten Screens</div>
     <h2>Every screen in PillRem is built to <em>reduce</em> cognitive load — not add to it.</h2>
     <p>Scroll the tour. Ten chapters, ten swatches, one quiet daily ritual.</p>
@@ -2055,7 +2192,7 @@ body::before {
      ============================================================ -->
 <section class="cta-final" id="download">
   <div class="container">
-    <div class="cta-box">
+    <div class="cta-box reveal-scale">
       <h2>Start taking care of your health <em>today</em>.</h2>
       <p>Download PillRem free on the App Store. Set up in a minute. Feel in control for good.</p>
       <a href="https://apps.apple.com/us/app/pill-reminder-pillrem/id6761991055" target="_blank" rel="noopener" class="app-store-btn" aria-label="Download PillRem on the App Store">
@@ -2077,9 +2214,7 @@ body::before {
     <div class="footer-top">
       <div class="footer-about">
         <a href="/" class="logo">
-          <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 20.5L20.5 10.5a5 5 0 0 0-7-7L3.5 13.5a5 5 0 0 0 7 7Z"/><path d="M8.5 8.5l7 7"/></svg>
-          </span>
+          <img class="logo-mark" src="assets/app-icon.png" alt="PillRem app icon" width="34" height="34" />
           PillRem
         </a>
         <p>The calm medication reminder app for iPhone. Built for real people managing real lives — and the people they care for.</p>
@@ -2125,13 +2260,70 @@ body::before {
 // Year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Nav scrolled state
-const nav = document.getElementById("nav");
-const setNavState = () => nav.classList.toggle("scrolled", window.scrollY > 4);
-setNavState();
-window.addEventListener("scroll", setNavState, { passive: true });
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Intersection-reveal
+// ---- Branded preloader: dismiss once the page is ready -------------
+(function () {
+  const pre = document.getElementById("preloader");
+  const unlock = () => document.documentElement.classList.remove("preload-lock");
+  if (!pre || reduceMotion) {
+    if (pre) pre.remove();
+    unlock();
+    return;
+  }
+  let dismissed = false;
+  const dismiss = () => {
+    if (dismissed) return;
+    dismissed = true;
+    pre.classList.add("done");
+    unlock();
+    pre.addEventListener("transitionend", () => pre.remove(), { once: true });
+    // Safety net in case transitionend never fires
+    setTimeout(() => pre.remove(), 900);
+  };
+  // Hold the splash briefly so the icon "rings", then reveal the page.
+  const start = () => setTimeout(dismiss, 1400);
+  if (document.readyState === "complete") start();
+  else window.addEventListener("load", start, { once: true });
+  // Absolute failsafe — never trap the user behind the splash.
+  setTimeout(dismiss, 4000);
+})();
+
+// ---- Nav scrolled state + scroll progress bar ---------------------
+const nav = document.getElementById("nav");
+const progress = document.getElementById("scrollProgress");
+let ticking = false;
+const onScroll = () => {
+  const y = window.scrollY;
+  nav.classList.toggle("scrolled", y > 4);
+  if (progress) {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = "scaleX(" + (max > 0 ? Math.min(y / max, 1) : 0) + ")";
+  }
+  ticking = false;
+};
+const requestScroll = () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+};
+onScroll();
+window.addEventListener("scroll", requestScroll, { passive: true });
+window.addEventListener("resize", requestScroll, { passive: true });
+
+// ---- Scroll reveal with per-group stagger -------------------------
+const revealEls = document.querySelectorAll(
+  ".reveal, .reveal-left, .reveal-right, .reveal-scale, .spread-text, .spread-figure"
+);
+
+// Give siblings sharing a parent a gentle cascade.
+const groupIndex = new Map();
+revealEls.forEach((el) => {
+  if (el.classList.contains("spread-text") || el.classList.contains("spread-figure")) return;
+  const parent = el.parentElement;
+  const i = groupIndex.get(parent) || 0;
+  if (i > 0) el.style.transitionDelay = Math.min(i * 80, 480) + "ms";
+  groupIndex.set(parent, i + 1);
+});
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
     if (e.isIntersecting) {
@@ -2141,7 +2333,7 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
 
-document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+revealEls.forEach((el) => revealObserver.observe(el));
 </script>
 
 </body>
